@@ -7,33 +7,36 @@
 
 *@
 
-<div class="row no-gutters m-3">
-    <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
-        <div class="card-header text-center">
-            <h5 class="m-0">Quotes</h5>
-        </div>
-        <div class="card-body">
-            @foreach (var quote in Model)
-            {
-                using (Html.BeginForm("Unsubscribe", "Admin", FormMethod.Post))
+<div class="container-fluid">
+    <div class="row no-gutters m-6">
+        <div class="card col-sm-12 col-md-10 col-lg-8 mx-auto shadow text-left">
+            <div class="card-header text-center">
+                <h5 class="m-0">Admin Quotes</h5>
+            </div>
+            <div class="card-body">
+                @foreach (var quote in Model)
                 {
-                    <div class="row mb-1">
-                        <div class="col">
-                            @quote.FirstName
+                    using (Html.BeginForm("Unsubscribe", "Admin", FormMethod.Post))
+                    {
+                        <div class="row mb-1">
+                            <div class="col-md-3">
+                                @quote.FirstName
+                            </div>
+                            <div class="col-md-3">
+                                @quote.LastName
+                            </div>
+                            <div class="col-md-4">
+                                @quote.EmailAddress
+                            </div>
+                            <div class="col-md-2">
+                                @quote.Quote
+                            </div>
                         </div>
-                        <div class="col">
-                            @quote.LastName
-                        </div>
-                        <div class="col">
-                            @quote.EmailAddress
-                        </div>
-                        <div class="col">
-                            @quote.Quote
-                        </div>
-                    </div>
+                    }
                 }
-            }
+            </div>
         </div>
     </div>
 </div>
+
 
